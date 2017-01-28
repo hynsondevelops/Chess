@@ -2,8 +2,7 @@ require_relative "Tile"
 
 class Empty < Tile
 
-	def checkLegal(row, col)
-		return true
-
+	def checkLegal(tile)
+		return false
 	end
 end
