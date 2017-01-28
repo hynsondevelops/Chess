@@ -6,6 +6,7 @@ require_relative "../lib/Rook.rb"
 require_relative "../lib/Tile.rb"
 require_relative "../lib/Empty.rb"
 require_relative "../lib/Knight.rb"
+require_relative "../lib/Chess.rb"
 
 
 

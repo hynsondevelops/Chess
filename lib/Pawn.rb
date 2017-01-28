@@ -5,8 +5,13 @@ class Pawn < Tile
 	attr_reader :initial
 		
 	def initialize(row, col, player)
-		@initial = true
 		super
+		if (@player == 1) #white
+			@symbol = '♙'	
+		elsif (@player == 2) #black
+			@symbol = '♟'
+		end
+		@initial = true
 	end
 
 	def checkLegal(tile)

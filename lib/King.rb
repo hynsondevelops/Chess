@@ -2,6 +2,15 @@ require_relative "Tile"
 
 class King < Tile
 		
+	def initialize(row, col, player)
+		super
+		if (@player == 1) #white
+			@symbol = '♔'	
+		elsif (@player == 2) #black
+			@symbol = '♚'
+		end
+	end
+
 	def checkLegal(tile)
 		row = tile.row
 		col = tile.col
