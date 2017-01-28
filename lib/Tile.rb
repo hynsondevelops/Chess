@@ -8,10 +8,10 @@ class Tile
 		@player = player #0 for blank 1 for white, 2 for black
 	end
 
-	def move(row, col)
-		if (checkLegal(row, col))
-			@row = row
-			@col = col
+	def move(tile)
+		if (checkLegal(tile))
+			@row = tile.row
+			@col = tile.col
 			puts "Moved Pawn to Row: #{@row}, Col: #{@col}"
 		end
 	end

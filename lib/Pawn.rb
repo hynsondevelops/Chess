@@ -9,23 +9,43 @@ class Pawn < Tile
 		super
 	end
 
-	def checkLegal(row, col)
-		if (col == @col)
-			if (@player == 1) #white
-				multiplier = 1
-			elsif (@player == 2) #black
-				multiplier = -1
+	def checkLegal(tile)
+		row = tile.row
+		col = tile.col
+		player = tile.player
+		if (player == 0) #empty tile 
+			if (col == @col)
+				if (@player == 1) #white
+					multiplier = 1
+				elsif (@player == 2) #black
+					multiplier = -1
+				end
+				if (@initial)
+					if (row == (@row + (multiplier * 2)) || row == (@row + (multiplier * 1)))
+						@initial = false
+						return true
+					end
+					return false
+				else
+					if (row == (@row + (multiplier * 1)))
+						@initial = false
+						return true
+					end
+					return false
+				end
 			end
-			if (@initial)
-				if (row == (@row + (multiplier * 2)) || row == (@row + (multiplier * 1)))
+		elsif (player == @player) #own piece
+			return false
+		else #other player's piece
+			if (col == @col + 1 || col == @col - 1)
+				if (@player == 1) #white
+					multiplier = 1
+				elsif (@player == 2) #black
+					multiplier = -1
+				end
+				if (row == (@row + multiplier))
 					return true
 				end
-				return false
-			else
-				if (row == (@row + (multiplier * 1)))
-					return true
-				end
-				return false
 			end
 		end
 		return false
